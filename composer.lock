@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6f1c1cfc13eaed42a7bd8f8901bbb2ec",
-    "content-hash": "56c7b5c12738bb5ac568fbd11705b18d",
+    "hash": "8fc5574f2978c65d293f01027a4899e7",
+    "content-hash": "812296b90d5dfd38d6aef592d0c1a5b5",
     "packages": [
         {
             "name": "telegram-bot/api",
-            "version": "v2.2.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TelegramBot/Api.git",
-                "reference": "d4b883c53bc622e01d5582f6ff754ef9a8c001ad"
+                "reference": "8f4c97ba2659a3d96dda460f4e42b2293f001103"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TelegramBot/Api/zipball/d4b883c53bc622e01d5582f6ff754ef9a8c001ad",
-                "reference": "d4b883c53bc622e01d5582f6ff754ef9a8c001ad",
+                "url": "https://api.github.com/repos/TelegramBot/Api/zipball/8f4c97ba2659a3d96dda460f4e42b2293f001103",
+                "reference": "8f4c97ba2659a3d96dda460f4e42b2293f001103",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "php",
                 "telegram"
             ],
-            "time": "2015-12-18 09:12:31"
+            "time": "2016-05-29 21:08:27"
         }
     ],
     "packages-dev": [
@@ -2055,7 +2055,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "telegram-bot/api": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
