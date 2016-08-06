@@ -14,11 +14,6 @@ $message = $output['message']['text'];
  * Set response.
  */
 switch($message) {
-<<<<<<< HEAD
-=======
-    // Weather API by OpenWeatherMap.
-    // @see http://api.openweathermap.org
->>>>>>> development
     case '/start':
         sendMessage($chat_id, "Done!");
         break;
