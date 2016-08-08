@@ -7,17 +7,17 @@ try {
     //$bot = new \TelegramBot\Api\Client('237071178:AAFpXWKXM2K5MQZwNYmkWAFP6G1bq3KQeEw');
     $bot = new Client('237071178:AAFpXWKXM2K5MQZwNYmkWAFP6G1bq3KQeEw');
 
-    $bot->inlineQuery(function (\TelegramBot\Api\Types\Inline\InlineQuery $inlineQuery) use ($bot) {
-        /* @var \TelegramBot\Api\BotApi $bot */
+    $bot->command("info", function ($message) use ($bot){
 
-        $result = [];
-        $url = 'http://diveinfestival.com/wp-content/uploads/2015/08/google-app-logo-1.jpg';
-        $result[] = new \TelegramBot\Api\Types\Inline\QueryResult\Photo(
-            hash("md5", $url), $url, $url, $url, 'image/jpeg'
-        );
-
-        $bot->answerInlineQuery($inlineQuery->getId(), $result);
+        $bot->sendMessage($message->getChat()->getId(), $bot->getMe()->getFirstName());
     });
+
+    $bot->command("start", function ($message) use ($bot){
+
+        $replyMarkup = new TelegramBot\Api\Types\ReplyKeyboardMarkup(["Yes", "No"]);
+        $bot->sendMessage($message->getChat()->getId(), "Кому шаурмы?", null, false, null, $replyMarkup, null);
+    });
+
 
     $bot->run();
 } catch (\TelegramBot\Api\Exception $e) {
