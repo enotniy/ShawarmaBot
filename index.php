@@ -10,13 +10,9 @@ try {
     $bot->inlineQuery(function (\TelegramBot\Api\Types\Inline\InlineQuery $inlineQuery) use ($bot) {
         /* @var \TelegramBot\Api\BotApi $bot */
 
-
-        $result = new TelegramBot\Api\Types\Inline\QueryResult\Photo(
-            1,
-            "http://2.bp.blogspot.com/-_1K702HuofI/Vb-2p8r73LI/AAAAAAAAR5s/UFxWoCZGTR8/s1600/Shawarma-Food-Pakistan.jpg",
-            "http://2.bp.blogspot.com/-_1K702HuofI/Vb-2p8r73LI/AAAAAAAAR5s/UFxWoCZGTR8/s1600/Shawarma-Food-Pakistan.jpg");
-
-        $bot->answerInlineQuery($inlineQuery->getId(), [$result], 0);
+        $var = $inlineQuery->getQuery();
+        
+        $bot->sendMessage($inlineQuery->getId(), $var);
     });
 
     $bot->run();
