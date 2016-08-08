@@ -6,13 +6,6 @@ use \TelegramBot\Api\Client;
 try {
     //$bot = new \TelegramBot\Api\Client('237071178:AAFpXWKXM2K5MQZwNYmkWAFP6G1bq3KQeEw');
     $bot = new Client('237071178:AAFpXWKXM2K5MQZwNYmkWAFP6G1bq3KQeEw');
-    $bot->command('start', function ($message) use ($bot) {
-
-        $bot->sendMessage($message->getChat()->getId(), "Start!");
-    });
-    $bot->command('stop', function ($message) use ($bot) {
-        $bot->sendMessage($message->getChat()->getId(), "Stop!");
-    });
 
     $bot->inlineQuery(function (\TelegramBot\Api\Types\Inline\InlineQuery $inlineQuery) use ($bot) {
         /* @var \TelegramBot\Api\BotApi $bot */
@@ -27,8 +20,8 @@ try {
             $node = $img->item($i);
             $url = $node->getAttribute('src');
             list($width, $height) = getimagesize($url);
-            $result[] = new \TelegramBot\Api\Types\Inline\InlineQueryResultPhoto(
-                $url, $url, $url, 'image/jpeg', $width, $height
+            $result[] = new \TelegramBot\Api\Types\Inline\QueryResult\Photo(
+                hash("md5", $url), $url, $url, $url, 'image/jpeg', $width, $height
             );
         }
         $bot->answerInlineQuery($inlineQuery->getId(), $result, 0);
@@ -38,3 +31,4 @@ try {
 } catch (\TelegramBot\Api\Exception $e) {
     $e->getMessage();
 }
+
