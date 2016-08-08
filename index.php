@@ -10,9 +10,13 @@ try {
     $bot->inlineQuery(function (\TelegramBot\Api\Types\Inline\InlineQuery $inlineQuery) use ($bot) {
         /* @var \TelegramBot\Api\BotApi $bot */
 
-        $var = $inlineQuery->getQuery();
-        
-        $bot->sendMessage($inlineQuery->getId(), $var);
+        $result = [];
+        $url = 'http://diveinfestival.com/wp-content/uploads/2015/08/google-app-logo-1.jpg';
+        $result[] = new \TelegramBot\Api\Types\Inline\QueryResult\Photo(
+            hash("md5", $url), $url, $url, $url, 'image/jpeg'
+        );
+
+        $bot->answerInlineQuery($inlineQuery->getId(), $result);
     });
 
     $bot->run();
