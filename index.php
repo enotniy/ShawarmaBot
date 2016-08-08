@@ -15,7 +15,14 @@ try {
     $bot->command("start", function ($message) use ($bot){
 
         $replyMarkup = new TelegramBot\Api\Types\ReplyKeyboardMarkup(["Yes", "No"]);
-        $bot->sendMessage($message->getChat()->getId(), "Кому шаурмы?", null, false, null, $replyMarkup, null);
+        $bot->sendMessage(
+            $message->getChat()->getId(),
+            "Кому шаурмы?",
+            $parseMode = null,
+            $disablePreview = false,
+            $replyToMessageId = null,
+            null,
+            $disableNotification = false);
     });
 
 
